@@ -38,14 +38,13 @@ body {
   padding: 0;
 }
 
-a{
+/* a{
   text-decoration: none;
-  color: white;
   display: flex;
   align-items: center;
 
 }
 a:hover{
   color: var(--primary-color);
-}
+} */
 </style>

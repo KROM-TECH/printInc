@@ -5,11 +5,10 @@
         <!-- <img src="./img/logo2.png" alt="logo" > -->
         <!-- <h5>Orbit Tutor</h5> -->
       </li>
-      <li class="nav-item"><router-link  to="/"><i class="material-icons-outlined ">home</i><span class="nav-name">Home</span></router-link></li> 
-      <li class="nav-item"><router-link to="/info"><i class="material-icons-outlined ">info</i><span class="nav-name">Info</span></router-link></li>
-      <li class="nav-item"><router-link to="/login"><i class="material-icons-outlined">perm_identity</i><span class="nav-name">Login</span></router-link></li>
-      <li class="nav-item"><router-link to="/services"><i class="material-icons-outlined">adjust</i><span class="nav-name">Services</span></router-link></li>
-      <li class="nav-item">Powered by Kromtech</li>
+    <router-link to="/"><i class="material-icons-outlined ">home</i><span class="nav-name">Home</span></router-link>
+      <router-link to="/info"><i class="material-icons-outlined ">info</i><span class="nav-name">Info</span></router-link>
+      <router-link to="/login"><i class="material-icons-outlined">perm_identity</i><span class="nav-name">Login</span></router-link>
+      <router-link to="/services"><i class="material-icons-outlined">adjust</i><span class="nav-name">Services</span></router-link>
     </ul>
   </aside>
 </template>
@@ -21,9 +20,10 @@ export default {
 </script>
 
 <style scoped>
-router-link{
-  color:red !important
+a.router-link-exact-active.router-link-active{
+  color:tomato;
 }
+
 @font-face {
   font-family: 'Material Icons Outlined';
   font-style: normal;
@@ -77,11 +77,11 @@ aside {
   align-items: center;
 }
 
-.nav-item {
+a {
+  text-decoration: none;
   padding: 1rem;
-  color: black !important;
+  color: white ;
   margin: 1rem;
-  /* background-color: white; */
   width: 20vw;
   text-align: center;
   border-radius: 50px 0px 0px 50px;
@@ -89,16 +89,15 @@ aside {
   z-index: 0;
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   align-items: center;
   transition: 0.9s;
 }
 
-.nav-item:hover {
-  color: black;
+a:hover {
+  color: var(--background-color);
   padding: 1rem;
   margin: 1rem;
-  background-color: rgba(255, 255, 255, 0.524);
+  background-color: rgba(255, 255, 255);
   width: 20vw;
   text-align: center;
   border-radius: 50px 0px 0px 50px;
@@ -110,32 +109,20 @@ aside {
   cursor: pointer;
 }
 
-li:last-child {
-  margin-bottom: auto;
-  position: fixed;
-  bottom: 0;
-  background-color: transparent;
-  font-size: large;
-  padding: 0 !important;
-}
 
-li:last-child:hover {
-  margin-bottom: auto;
-  position: fixed;
-  bottom: 0;
-  background-color: transparent;
-}
 
-li:first-child:hover {
+
+
+a:first-child:hover {
   font-size: 300px !important;
   background-color: transparent;
 }
 
-.nav-item .material-icons-outlined {
+a .material-icons-outlined {
   font-size: 36px !important;
 }
 
-.nav-item .nav-name {
+a .nav-name {
   margin-left: 1.5rem;
 }
 
@@ -148,9 +135,13 @@ li:first-child:hover {
   .logo h5 {
     display: none;
   }
+
 }
 
 @media screen and (max-width: 813px) {
+    a:hover{
+    border-radius: 0px ;
+  }
   body {
     overflow: hidden;
   }
@@ -180,7 +171,7 @@ li:first-child:hover {
     margin: 0;
     width: 0;
   }
-    .nav-item:hover {
+    .a:hover {
     color: var(--primary-color);
     padding: 0.7rem;
     margin: 1rem;
@@ -198,8 +189,12 @@ li:first-child:hover {
 }
 
 @media screen and (max-width: 613px) {
-  .nav-item .nav-name {
+  
+  a .nav-name {
     display: none;
+  }
+  a:hover{
+    background-color: transparent;
   }
   main {
     background-color: white;

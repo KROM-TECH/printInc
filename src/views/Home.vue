@@ -1,164 +1,104 @@
 <template>
-<main>
+  <main>
     <div class="main">
-          <div class="content">
-            <h2>Print Anywhere, with Low Cost Less Stress</h2>
-          
-            <router-link to="/login"><button> <b>CREATE AN ACCOUNT</b> </button></router-link>
-            <button> <b>Tell a Friend</b> </button>
-          
-          </div>
-          <div class="img">
-            <img src="../assets/print.png" alt="teacher">
-          
-          </div>
-    </div>
+        <div>
+        <h2>About</h2>
+        <p>
+          PrintInc is a Kromtech powered Platform that focuses on reducing the stress it takes to get simple printing done in Nigerian Universities <br />
+          So Instead of searching for a printing shop early in the morning to print your assignment or searching up and down for cheaper rates, we get it done for you all from the comfort of your
+          mobile device and you can either get it delivered to you or come to pick it up
+        </p>
+        </div>
+        <div>
+        <h2>How It Works</h2>
+        <p>
+        <ul>
+          <li>Login</li>
+          <li>Navigate to the printing screen and fill in the form</li>
+          <li>A price will be auto generated after filling the form (we currently do not offer pay on delivery)</li>
+          <li>Make Payment or save file in order to print later</li>
+        </ul>
+        </p>
+        </div>
+        <div>
+        <h2>Pricing</h2>
+        <p>
+        <ul>
+          <li>Black and white ~ <span class="price">15naira per page</span></li>
+          <li>Colored ~ <span class="price">35naira per page </span></li>
+          <li>Black and white ~  <span class="price">10naira per page</span> (10 pages and above)</li>
+          <li>Colored ~  <span class="price">30naira per page</span> (10 pages and above)</li>          
+        </ul>
+        </p>
+        </div>
+
+
+   </div>
 
 
   </main>
 </template>
 
 <script>
-  export default {
-    
-  }
+  export default {};
 </script>
 
 <style scoped>
-
-main {
-  background-color: white;
-  height: 100vh;
-  width: 80vw;
-  z-index: 10;
-  /* margin: 2rem 4rem 2rem auto; */
-  /* border-radius: 45px; */
-  display: flex;
+.price{
+ color: tomato;
 }
-
-main .content {
-  width: 50%;
-  padding: 1rem;
-  padding-left: 5em;
-  letter-spacing: 1px;
-  word-spacing: 0.8rem;
-  text-align: start;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+ul{
+  text-align: start !important;
 }
-
-main .content h2 {
-  font-size: 2.5rem;
-  font-weight: 600 !important;
-}
-
-main .img {
-  width: 50%;
-  display: flex;
-  align-items: center;
-}
-
-main .content button {
-  margin: 5px 0px !important;
-  padding: 1rem;
-  background-color: var(--primary-color);
-  outline: none;
-  border-radius: 5px;
-  border: transparent;
-  width: fit-content;
-}
-
-main .content button:hover {
-  padding: 1rem;
-  color: var(--primary-color);
-  background-color:transparent;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid var(--background-color) ;
-}
-
-.main {
-  height: 95vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-main .img img {
-  width: 100%;
-  height: auto;
-  justify-content: center;
-}
-
-@media screen and (max-width: 813px) {
-  body {
-    overflow: hidden;
-  }
-  main {
-    padding-bottom: 50rem;
+  * {
+    margin: 0 !important;
+    transition: 1s linear;
   }
 
   main {
     background-color: white;
-    height: 93vh;
-    width: 100vw;
-    z-index: 1;
-    margin: 0rem 0rem 0rem 0rem;
-    border-radius: 0px;
-    display: flex;
-    flex-direction: row;
-  }
-  .main {
-    position: absolute;
-    top: 0rem;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    overflow: auto;
-  }
-
-}
-
-@media screen and (max-width: 613px) { 
-   main {
-    background-color: white;
-    height: 93vh;
-    width: 100vw;
-    z-index: 1;
-    margin: 0rem 0rem 0rem 0rem;
-    border-radius: 0px;
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center !important;
-  }
-  main .content {
-    width: 100%;
-    padding: 2rem;
-    padding: 0em;
-    letter-spacing: 1px;
-    word-spacing: 0.8rem;
-    text-align: center;
+    height: 100vh;
+    width: 87vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+     letter-spacing: 1px;
+  word-spacing: 0.4rem;
   }
-  main .img img {
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    margin-top: auto;
+
+  main p {
+    padding: 5px;
   }
-  .main {
-    position: absolute;
-    /* top: 10rem; */
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
+  main  h2 {
+    color: var(--primary-color);
+    font-size: 2.1rem;
+    font-weight: 600 !important;
+    margin: 1rem 0rem !important;
   }
-}
+
+
+  @media screen and (max-width: 813px) {
+    body {
+      overflow: auto;
+    }
+    main {
+    width: 100vw;
+    overflow-y: auto;
+  }
+    .main {
+    width: 100vw;
+    margin-bottom: 4rem !important; 
+    overflow-y: auto;
+  }
+  }
+
+  @media screen and (max-width: 613px) {
+    main{
+      overflow-y: auto;    
+    }
+    .main{
+      margin-bottom: 4rem !important;  
+      overflow-y: auto;    
+    }
+  }
 </style>

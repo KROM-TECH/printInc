@@ -2,57 +2,106 @@
   <main>
     <div class="main">
       <h2>Login</h2>
+      <span class="sp1">With</span>
       <div class="social">
         <div class="bod"><img src="https://img.icons8.com/color/48/000000/google-logo.png" /></div>
         <div class="bod"><img src="https://img.icons8.com/fluent/48/000000/instagram-new.png" /></div>
         <div class="bod"><img src="https://img.icons8.com/fluent/48/000000/twitter.png" /></div>
       </div>
 
-      <div class="form">
+<span class="sp2">or</span>
+      <form @submit.prevent="handleSub" action="">
         <div>
           <input type="text" />
         </div>
         <div>
           <input type="text" />
+        </div>
+        <div class="spc">
+          <span class="sp">Create Account</span>
+          <span class="sp"> Forget password</span>
         </div>
 
-        <button>Submit</button>
-      </div>
+        <button type="submit">Submit</button>
+      </form>
     </div>
   </main>
 </template>
 
 <script>
-  export default {};
+  export default {
+    data() {
+      return {};
+    },
+    methods: {
+      handleSub() {
+        alert('clicked');
+      }
+    }
+  };
 </script>
 
 <style scoped>
-button{
+  .spc {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px !important;
+  }
+  .sp1 {
+    font-size: 0.8rem;
+    word-spacing: normal;
+    letter-spacing: normal;
+    color: var(--primary-color);
+    margin-bottom: 15px !important;
+  }
+  .sp2 {
+    font-size: 0.8rem;
+    word-spacing: normal;
+    letter-spacing: normal;
+    color: var(--primary-color);
+    margin-top: 20px !important;
+  }
+  .sp {
+    font-size: 0.6rem;
+    word-spacing: normal;
+    letter-spacing: normal;
+    color: var(--primary-color);
+    cursor:pointer
+  }
+  button {
     margin: 5px 0px !important;
-  padding: 1rem;
-  background-color: var(--primary-color);
-  outline: none;
-  border-radius: 5px;
-  border: transparent;
-  width: fit-content;
-  color: white !important;
-}
-button:hover{
-    padding: 1rem;
-  color: var(--primary-color) !important;
-  background-color:transparent;
-  outline: none;
-  border-radius: 5px;
-  border: 1px solid var(--background-color) ;
-}
-.form{
-  margin-top:5rem !important;
-  /* border: 1px solid black; */
-}
-input{
-  padding:7px;
-  margin: 4px !important;
-}
+    padding: 0.8rem;
+    background-color: var(--primary-color);
+    outline: none;
+    border-radius: 5px;
+    border: transparent;
+    width: fit-content;
+    color: white !important;
+  }
+  button:hover {
+    padding: 0.8rem;
+    color: var(--primary-color) !important;
+    background-color: transparent;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--background-color);
+  }
+  form {
+    margin-top: 3rem !important;
+    width: fit-content;
+  }
+  input {
+    padding: 7px;
+    margin-bottom: 15px !important;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid grey;
+  }
+  input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid var(--background-color);
+  }
   img {
     max-width: 100%;
     height: auto;
@@ -81,6 +130,8 @@ input{
     width: 87vw;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     letter-spacing: 1px;
     word-spacing: 0.4rem;
@@ -105,6 +156,9 @@ input{
       overflow-y: auto;
     }
     .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       width: 100vw;
       margin-bottom: 4rem !important;
       overflow-y: auto;
