@@ -2,15 +2,13 @@
 <main>
     <div class="main">
           <div class="content">
-            <h2>Print Anywhere, with Low Cost Less Stress</h2>
+            <h2>Print Anywhere with Low Cost and Less Stress</h2>
           
-            <router-link to="/login"><button> <b>CREATE AN ACCOUNT</b> </button></router-link>
-            <button> <b>Tell a Friend</b> </button>
-          
+            <router-link to="/signup"><button> <b>CREATE AN ACCOUNT</b> </button></router-link>
+            <button> <b>Tell a Friend</b> </button>          
           </div>
           <div class="img">
-            <img src="../assets/print.png" alt="teacher">
-          
+            <img src="../assets/print.png" alt="teacher">          
           </div>
     </div>
 

@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="main">
-      <h2>Login</h2>
+      <h2>Sign Up</h2>
       <span class="sp1">With</span>
       <div class="social">
         <div class="bod"><img src="https://img.icons8.com/color/48/000000/google-logo.png" /></div>
@@ -13,17 +13,17 @@
       <form @submit.prevent="handleSub" action="">
         <div class="err">{{error}}</div>
         <div>
-          <input type="text" v-model="Email" placeholder="Email"/>
+          <input type="text" v-model="Email" placeholder="Email" />
         </div>
         <div>
           <input type="text" v-model="Password" placeholder="Password"/>
         </div>
         <div class="spc">
-          <span class="sp"> <a href="/signup">Create Account</a> </span>
+          <span class="sp"> <a href="/login">Login</a> </span>
           <span class="sp"> Forget password</span>
         </div>
 
-        <button  type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   </main>
@@ -35,17 +35,16 @@ import 'firebase/auth';
   export default {
     data() {
       return {
-           Email:'',
+        Email:'',
         Password:'',
         error:''
       };
     },
     methods: {
-   handleSub() {
-     console.log(this.Email, this.Password)
+      handleSub() {
         firebase
         .auth()
-        .signInWithEmailAndPassword(this.Email, this.Password)
+        .createUserWithEmailAndPassword(this.Email, this.Password)
         .then(
           user=>{
              this.$router.go({path:'/home'})
@@ -116,6 +115,7 @@ a{
   form {
     margin-top: 3rem !important;
     width: fit-content;
+    max-width: 190px;
   }
   input {
     padding: 7px;

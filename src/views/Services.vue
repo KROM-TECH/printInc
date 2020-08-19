@@ -4,33 +4,33 @@
       <div>
         <h2>About</h2>
         <p>
-          Below are a list of a kromtech product <br />
+          Below is a list of all kromtech services <br />
           feel free to explore, we might just have solved that problem you are facing already
         </p>
       </div>
 
-      <div @mouseleave="hide" @mouseenter="show" class="card">
+      <div   class="card">
         <span class="heading"> KMP</span>
-        <span :class="{ show: isActive, hide: !isActive }"
+        <span 
           >An Initiative to Help guide young university students by peering them with students of higher level usually the same faculty and department</span
         >
       </div>
-      <div @mouseleave="hide" @mouseenter="show" class="card">
+      <div class="card">
         <span class="heading">Studee</span>
-        <span :class="{ show: isActive, hide: !isActive }"
+        <span 
           >Get your Past Questions available to you both Online and Offline With added benefits of 24/7 available online tutor and Course Outline</span
         >
         </div>
 
-      <div @mouseleave="hide" @mouseenter="show" class="card">
-        <span class="heading">Orbit Tutors</span>
-        <span :class="{ show: isActive, hide: !isActive }"
+      <div  class="card">
+        <span class="heading">TeachMe</span>
+        <span 
           >Can't read on your own and Can't learn in a crowded classroom, well we got you covered. <br>With Orbit Tutors you can view various Tutors within the same University and schedule learning Appointment</span
         >
       </div>
-      <div @mouseleave="hide" @mouseenter="show" class="card">
+      <div class="card">
         <span class="heading">Fastrac</span>
-        <span :class="{ show: isActive, hide: !isActive }"
+        <span 
           >You need publicity for your Product or need a site to advertise your goods?. Fastrac has your back, We provide everything you would need to take your Business to the next level </span
         >
       </div>
@@ -45,6 +45,13 @@
       return {
         isActive: false
       };
+    },
+    created(){
+     document.querySelectorAll('.card').forEach(item => {
+  item.addEventListener('click', event => {
+    alert(event)
+  })
+})
     },
     methods: {
       show() {
@@ -74,7 +81,7 @@
     margin: 5px 0px !important;
     background-color: var(--background-color);
     max-width: 90%;
-    height: 50%;
+    height: fit-content;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 1px 2px 3px black;

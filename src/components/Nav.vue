@@ -5,17 +5,32 @@
         <!-- <img src="./img/logo2.png" alt="logo" > -->
         <!-- <h5>Orbit Tutor</h5> -->
       </li>
-    <router-link to="/"><i class="material-icons-outlined ">home</i><span class="nav-name">Home</span></router-link>
+    <router-link to="/home" v-if="isLoggedIn"><i class="material-icons-outlined ">home</i><span class="nav-name">Home</span></router-link>
+    <router-link to="/" v-if="!isLoggedIn"><i class="material-icons-outlined ">home</i><span class="nav-name">Home</span></router-link>
       <router-link to="/info"><i class="material-icons-outlined ">info</i><span class="nav-name">Info</span></router-link>
-      <router-link to="/login"><i class="material-icons-outlined">perm_identity</i><span class="nav-name">Login</span></router-link>
+      <router-link to="/login" v-if="!isLoggedIn"><i class="material-icons-outlined">perm_identity</i><span class="nav-name">Login</span></router-link>
+      <router-link to="/document" v-if="isLoggedIn"><i class="material-icons-outlined">article</i><span class="nav-name">Document</span></router-link>
       <router-link to="/services"><i class="material-icons-outlined">adjust</i><span class="nav-name">Services</span></router-link>
     </ul>
   </aside>
 </template>
 
 <script>
+import firebase from 'firebase/app';
+import 'firebase/auth'
 export default {
-
+data(){
+        return{
+        isLoggedIn:true,
+      }
+},
+created(){
+  if(firebase.auth().currentUser){
+    this.isLoggedIn = true;    
+  }else{
+    this.isLoggedIn = false;
+  }
+}
 }
 </script>
 
