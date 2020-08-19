@@ -73,8 +73,13 @@ const routes: Array<RouteConfig> = [
   {
     path: '/contact',
     name: 'Contact',
-    component: () => import('../views/Contact.vue'),
+    component: () => import('../views/Contact.vue')
   },
+  {
+    path: '*',
+    name: 'Error',
+    component: () => import('../views/Error.vue')
+  }
 ];
 
 const router = new VueRouter({

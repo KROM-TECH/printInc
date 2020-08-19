@@ -2,7 +2,14 @@
   <main>
     <div class="main">
       <hr />
-      <h5>You have {{progress}} Document in progress</h5>
+      <h5>You have {{ progress }} Document in progress</h5>
+      <div class="container" v-for="document in documents" :key="document.time">
+        <div class="card">
+            <span>Title: {{document.title}}</span>
+            <span>Date: {{document.time}} </span>
+            <span>status: {{document.status}} </span>
+        </div>
+      </div>
     </div>
   </main>
 </template>
@@ -20,16 +27,16 @@
   export default {
     data() {
       return {
-        array: []
+        documents: []
       };
     },
     created() {
       docRef
         .get()
-        .then((doc)=> {
+        .then((doc) => {
           if (doc.exists) {
-            console.log(doc.data().inProgress)
-            this.array = doc.data().inProgress;
+            console.log(doc.data().inProgress);
+            this.documents = doc.data().inProgress;
           } else {
             console.log('No such document!');
           }
@@ -38,12 +45,12 @@
           console.log('Error getting document:', error);
         });
     },
-    computed:{
-      progress(){
-        if(this.array.length < 1){
-          return 'zero'
-        }else{
-          return this.array.length
+    computed: {
+      progress() {
+        if (this.documents.length < 1) {
+          return 'zero';
+        } else {
+          return this.documents.length;
         }
       }
     }
@@ -51,6 +58,20 @@
 </script>
 
 <style scoped>
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  .card {
+    margin: 1.5rem 2rem !important;
+    text-align: start !important;
+    background-color: burlywood;
+    padding: 1rem;
+    width: fill-available !important;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem !important;
+  }
   h5 {
     color: grey;
     margin-top: 1rem !important;

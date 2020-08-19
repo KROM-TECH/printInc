@@ -90,6 +90,9 @@
     methods: {
       handleSubmit() {
         const object = {
+          time:`${new Date().toLocaleTimeString()} of ${new Date().toLocaleDateString()}`,
+          status:'In-progress',
+          user: user.uid,
           title: this.title,
           name: this.name,
           urgent: this.urgent,
