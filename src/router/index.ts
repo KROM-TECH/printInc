@@ -18,6 +18,11 @@ const routes: Array<RouteConfig> = [
     component: () => import('../views/Info.vue')
   },
   {
+path: '/*',
+name:'Error',
+component: () => import('../views/Error.vue')
+},
+  {
     path: '/services',
     name: 'Service',
     component: () => import('../views/Services.vue')
