@@ -49,6 +49,11 @@
       </div>
 
       <div>
+        <label for="book" class="upload" v-if="price">#{{ price }}</label>
+        <input @change="update" class="custom-upload__input" id="book" type="file" style="display: none;" data-behaviour="custom-upload-input" name="file" required="" />
+      </div>
+
+      <div>
         <label for="book" id="uploadbtn" class="upload">{{ title }}</label>
         <input @change="update" class="custom-upload__input" id="book" type="file" style="display: none;" data-behaviour="custom-upload-input" name="file" required="" />
       </div>
@@ -66,6 +71,7 @@
   import 'firebase/firestore';
   import 'firebase/storage';
   import 'firebase/auth';
+  // import 'docx-pdf-pagecount';
   const user = firebase.auth().currentUser;
   const db = firebase.firestore();
   const up = db.collection('users').doc(user.uid);
@@ -81,7 +87,9 @@
         colored: 'No',
         pickup: 'Yes',
         description: '',
-        error: ''
+        error: '',
+        price: '',
+        pages: ''
       };
     },
     created() {
@@ -103,6 +111,23 @@
         };
         this.print = 'Loading...';
         console.log(document.getElementById('book').files[0]);
+
+        /*
+        if (this.colored === 'Yes') {
+          if (this.pages > 10) {
+            this.price = 30 * this.pages;
+          } else {
+            this.price = 35 * this.pages;
+          }
+        } else {
+          if (this.pages > 10) {
+            this.price = 10 * this.pages;
+          } else {
+            this.price = 15 * this.pages;
+          }
+        };
+        */
+
         const ref = db.collection('toPrint').doc(`${this.title} by ${this.name}`);
         console.log(this.title, this.name, this.number, this.colored, this.pickup, this.description);
         ref
